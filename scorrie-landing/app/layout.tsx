@@ -9,7 +9,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Scorrie | A Revolutionary Trust-First Marketplace",
+  title: "Scorrie",
   description:
     "Scorrie is building a revolutionary platform where trust meets transactions. Connect safely in a world full of uncertainty. Launching June 2026.",
   keywords:
