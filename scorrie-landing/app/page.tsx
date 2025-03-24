@@ -191,7 +191,7 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.2 }}
                 className="text-5xl md:text-7xl lg:text-8xl font-extrabold mb-6 leading-tight tracking-tighter"
               >
-                <span className="block bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-orange-300 to-blue-400">
+                <span className="block bg-clip-text text-transparent bg-gradient-to-r from-purple-400 via-orange-300 to-blue-400 py-1 leading-[1.1]">
                   Something Big
                 </span>
                 <span className="block">Is Coming</span>
@@ -251,11 +251,11 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 whileHover={{ scale: 1.05 }}
                 transition={{ duration: 0.8, delay: 0.8 }}
-                className="mt-12 inline-flex flex-col items-center"
+                className="mt-12 w-full flex flex-col items-center"
               >
-                <div className="relative">
+                <div className="relative mx-auto max-w-md w-full">
                   <div className="absolute inset-0 bg-gradient-to-r from-purple-600 via-orange-500 to-blue-600 rounded-3xl blur-md opacity-50"></div>
-                  <div className="relative px-8 py-4 rounded-3xl border border-white/20 bg-black/30 backdrop-blur-md flex items-center">
+                  <div className="relative px-10 py-5 rounded-3xl border border-white/20 bg-black/30 backdrop-blur-md flex items-center justify-center">
                     <motion.div
                       animate={{
                         rotate: [0, 10, -10, 10, 0],
@@ -280,7 +280,7 @@ export default function Home() {
                 </div>
 
                 {/* Animated particles */}
-                <div className="relative h-12 w-full">
+                <div className="relative h-12 w-full flex justify-center">
                   {[...Array(5)].map((_, i) => (
                     <motion.div
                       key={i}
@@ -337,12 +337,14 @@ export default function Home() {
                   y: { duration: 1.5, repeat: Number.POSITIVE_INFINITY },
                   exit: { duration: 0.3 },
                 }}
-                className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center"
+                className="absolute bottom-10 left-0 right-0 mx-auto text-center w-full"
               >
-                <span className="text-sm text-gray-400 mb-2">
-                  Scroll to explore
-                </span>
-                <ChevronDown className="text-gray-400" size={24} />
+                <div className="flex flex-col items-center justify-center">
+                  <span className="text-sm text-gray-400 mb-2">
+                    Scroll to explore
+                  </span>
+                  <ChevronDown className="text-gray-400 mx-auto" size={24} />
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
@@ -390,28 +392,24 @@ export default function Home() {
                   title="Trustworthy"
                   description="Scorrie creates a secure environment where every interaction is built on trust and transparency."
                   icon={<Shield className="text-orange-300" size={24} />}
-                  delay={0}
                 />
 
                 <GlassMorphicCard
                   title="Community-Focused"
                   description="Connect with real people in your community through a platform that prioritizes authentic interactions."
                   icon={<Users className="text-purple-400" size={24} />}
-                  delay={0.2}
                 />
 
                 <GlassMorphicCard
                   title="Secure"
                   description="Advanced verification systems ensure you're always dealing with legitimate users, not scammers or bots."
                   icon={<Shield className="text-blue-400" size={24} />}
-                  delay={0.4}
                 />
 
                 <GlassMorphicCard
                   title="Simplified"
                   description="A streamlined experience that makes connecting and transacting with others effortless and worry-free."
                   icon={<Zap className="text-orange-300" size={24} />}
-                  delay={0.6}
                 />
               </div>
             </motion.div>
@@ -461,21 +459,18 @@ export default function Home() {
                 title="Verified Profiles"
                 description="Multi-layer verification ensures you're always dealing with real, trustworthy people."
                 icon={<SeamlessIcon />}
-                delay={0}
               />
 
               <NeumorphicFeatureCard
                 title="Secure Transactions"
                 description="Protected interaction systems that drastically reduce the risk of scams and fraud. (Coming 2027)"
                 icon={<TechIcon />}
-                delay={0.2}
               />
 
               <NeumorphicFeatureCard
                 title="Local Connections"
                 description="Find what you need from people in your community, building local networks of trust."
                 icon={<GlobalIcon />}
-                delay={0.4}
               />
             </div>
 
@@ -755,10 +750,6 @@ export default function Home() {
                 >
                   For Investors
                 </Link>
-
-                <span className="text-sm text-gray-400">
-                  Launching June 2026
-                </span>
               </div>
             </div>
           </div>
@@ -779,7 +770,7 @@ function NavLink({
   return (
     <Link
       href={href}
-      className="text-gray-200 hover:text-white transition-colors relative group px-2 py-1"
+      className="text-gray-200 hover:text-white transition-colorsors relative group px-2 py-1"
     >
       {children}
       <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-purple-400 via-orange-300 to-blue-400 transition-all duration-300 group-hover:w-full rounded-full"></span>
@@ -832,19 +823,17 @@ function GlassMorphicCard({
   title,
   description,
   icon,
-  delay = 0,
 }: {
   title: string;
   description: string;
   icon: React.ReactNode;
-  delay?: number;
 }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       whileHover={{ y: -5 }}
-      transition={{ duration: 0.8, delay }}
+      transition={{ duration: 0.8 }}
       viewport={{ once: true }}
       className="backdrop-blur-xl bg-white/5 border border-white/10 rounded-3xl p-6 hover:bg-white/10 transition-all"
     >
@@ -863,19 +852,17 @@ function NeumorphicFeatureCard({
   title,
   description,
   icon,
-  delay = 0,
 }: {
   title: string;
   description: string;
   icon: React.ReactNode;
-  delay?: number;
 }) {
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       whileHover={{ y: -10 }}
-      transition={{ duration: 0.8, delay }}
+      transition={{ duration: 0.8 }}
       viewport={{ once: true }}
       className="bg-[#150a20] rounded-3xl p-8 shadow-[5px_5px_15px_rgba(0,0,0,0.3),-5px_-5px_15px_rgba(255,255,255,0.05)] hover:shadow-[inset_5px_5px_15px_rgba(0,0,0,0.3),inset_-5px_-5px_15px_rgba(255,255,255,0.05)] transition-all duration-300"
     >
@@ -907,7 +894,7 @@ function SeamlessIcon() {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 2 12C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+        d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
         stroke="url(#paint0_linear)"
         strokeWidth="2"
         strokeLinecap="round"
@@ -1013,7 +1000,7 @@ function GlobalIcon() {
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 2 12C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
+        d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z"
         stroke="url(#paint0_linear)"
         strokeWidth="2"
         strokeLinecap="round"
