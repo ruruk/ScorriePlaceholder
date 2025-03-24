@@ -4,7 +4,8 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import GoogleAnalytics from "./google-analytics";
-
+import { Suspense } from "react";
+import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -63,7 +64,9 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         {/* Add Google Analytics - Replace with your actual measurement ID when available */}
-        <GoogleAnalytics GA_MEASUREMENT_ID="G-H1DX8HT7MC" />
+        <Suspense>
+          <GoogleAnalytics GA_MEASUREMENT_ID="G-H1DX8HT7MC" />
+        </Suspense>
         <ThemeProvider
           attribute="class"
           defaultTheme="dark"
@@ -72,10 +75,7 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
-        <GoogleAnalytics GA_MEASUREMENT_ID="G-H1DX8HT7MC" />
       </body>
     </html>
   );
 }
-
-import "./globals.css";
