@@ -1,17 +1,18 @@
-import type React from "react"
-import type { Metadata } from "next"
-import { Inter } from "next/font/google"
-import "./globals.css"
-import { ThemeProvider } from "@/components/theme-provider"
-import GoogleAnalytics from "./google-analytics"
+import type React from "react";
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider";
+import GoogleAnalytics from "./google-analytics";
 
-const inter = Inter({ subsets: ["latin"] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Scorrie | A Revolutionary Trust-First Marketplace",
   description:
     "Scorrie is building a revolutionary platform where trust meets transactions. Connect safely in a world full of uncertainty. Launching June 2026.",
-  keywords: "marketplace, secure transactions, trust, community, AI-powered, scam prevention, online safety",
+  keywords:
+    "marketplace, secure transactions, trust, community, AI-powered, scam prevention, online safety",
   authors: [{ name: "Ruan Klopper" }],
   creator: "Ruan Klopper",
   publisher: "Scorrie",
@@ -45,13 +46,13 @@ export const metadata: Metadata = {
     follow: true,
   },
   metadataBase: new URL("https://www.scorrie.com"),
-    generator: 'v0.dev'
-}
+  generator: "placeholder made with v0.dev",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode
+  children: React.ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -62,16 +63,19 @@ export default function RootLayout({
       </head>
       <body className={inter.className}>
         {/* Add Google Analytics - Replace with your actual measurement ID when available */}
-        <GoogleAnalytics GA_MEASUREMENT_ID="G-XXXXXXXXXX" />
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+        <GoogleAnalytics GA_MEASUREMENT_ID="G-H1DX8HT7MC" />
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem
+          disableTransitionOnChange
+        >
           {children}
         </ThemeProvider>
-        <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS || ""} />
+        <GoogleAnalytics GA_MEASUREMENT_ID="G-H1DX8HT7MC" />
       </body>
     </html>
-  )
+  );
 }
 
-
-
-import './globals.css'
+import "./globals.css";
