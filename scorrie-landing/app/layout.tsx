@@ -10,10 +10,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Scorrie",
-  description:
-    "Scorrie is building a revolutionary platform where trust meets transactions. Connect safely in a world full of uncertainty. Launching June 2026.",
-  keywords:
-    "marketplace, secure transactions, trust, community, AI-powered, scam prevention, online safety",
+  description: "Launching June 2026.",
   authors: [{ name: "Ruan Klopper" }],
   creator: "Ruan Klopper",
   publisher: "Scorrie",
@@ -21,24 +18,22 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://www.scorrie.com",
-    title: "Scorrie | A Revolutionary Trust-First Marketplace",
-    description:
-      "A revolutionary platform where trust meets transactions. Connect safely in a world full of uncertainty.",
+    title: "Scorrie",
+    description: "Launching June 2026.",
     siteName: "Scorrie",
     images: [
       {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Scorrie - A Revolutionary Trust-First Marketplace",
+        alt: "Scorrie - Launching June 2026.",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Scorrie | A Revolutionary Trust-First Marketplace",
-    description:
-      "A revolutionary platform where trust meets transactions. Connect safely in a world full of uncertainty.",
+    title: "Scorrie",
+    description: "Launching June 2026.",
     images: ["/og-image.png"],
     creator: "@ruanklopper",
   },
@@ -47,7 +42,6 @@ export const metadata: Metadata = {
     follow: true,
   },
   metadataBase: new URL("https://www.scorrie.com"),
-  generator: "placeholder made with v0.dev",
 };
 
 export default function RootLayout({
